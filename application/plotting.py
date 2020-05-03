@@ -11,7 +11,7 @@ sns.set()
 
 
 def do_plot():
-    df = pd.read_csv('data/listings_cleaned_modeling_manchester.csv', index_col=0)
+    df = pd.read_csv('application/data/listings_cleaned_modeling_manchester.csv', index_col=0)
     fig = df.time_since_last_review.hist(figsize=(15,5), bins=30)
 
 
@@ -23,7 +23,7 @@ def do_plot():
 
 
 def get_manchester_df():
-    df = pd.read_csv('data/listings_cleaner_modeling_manchester.csv', index_col=0)
+    df = pd.read_csv('application/data/listings_cleaner_modeling_manchester.csv', index_col=0)
 
     #edinburgh_venues = pd.read_csv('/resources/Data_Science_Capstone/Edinburgh_Venues.csv', index_col=0)
     #m_df = pd.DataFrame(data[])

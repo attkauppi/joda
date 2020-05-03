@@ -1,7 +1,45 @@
 {% extends 'layout.html' %}
-{% block body %}
+{% block content %}
 
-        <p>
-            Hello world
-        </p>
+    <main role="main" class="container">
+    <div class="row">
+      <div class="col-md-8 blog-main">
+        <h3 class="pb-3 mb-4 font-italic border-bottom">
+          From the Firehose
+        </h3>
+
+        <div class="blog-post">
+            <h2 class="blog-post-title">Helsingin Airbnb-markkinat</h2>
+
+            <p>
+                "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum."
+            </p>
+            <p>
+                Olen havainnollistanut Helsingin Airbnb-markkinoita myös karttojen muodossa, jotka lötyvät alta. 
+            </p>
+
+            <div>
+                <h4>Airbnb-asuntojen määrät Helsingin eri kaupunginosissa</h4>
+                <iframe src="{{ url_for('map') }}" width="600" height="600"></iframe>
+            </div>
+
+            <div>
+            <h4>Airbnb-asuntojen mediaanihinnat Helsingin eri kaupunginosissa</h2> 
+                <iframe src="{{ url_for('map_median_price') }}" width=600 height=600></iframe>
+            </div>
+
+            <figure class="figure">
+                <!--<img src="http://localhost:5000/plots/manchester/time_since_last_review" class="img-fluid" width=900 height=300/>-->
+                <!-- TOIMIVA <img src="http://localhost:5000/plots/manchester/time_since_last_review" alt=""-->
+            </figure>
+
+
+
+
+
+
+        </div>
+
+
+    
 {% endblock %}
