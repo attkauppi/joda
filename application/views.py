@@ -24,8 +24,6 @@ model_columns = joblib.load("application/pickles/model_cols_typistetty_man.pkl",
 model_transformed = pickle.load(open('application/pickles/model_man_transformed.pkl', 'rb'))
 
 
-
-
 @app.route("/")
 def index():
     return render_template("index.html")
