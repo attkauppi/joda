@@ -31,12 +31,12 @@ def index():
 
 
 # Plotting paths
-@app.route('/plots/manchester/time_since_last_review', methods=["GET"])
-def time_since_last_review_man():
-    #<img src="http://localhost:5000/plots/manchester/time_since_last_review"/>
-    bytes_obj = do_plot()
+# @app.route('/plots/manchester/time_since_last_review', methods=["GET"])
+# def time_since_last_review_man():
+#     #<img src="http://localhost:5000/plots/manchester/time_since_last_review"/>
+#     bytes_obj = do_plot()
 
-    return flask.send_file(bytes_obj, attachment_filename='time_since_last_review_man.png', mimetype='image/png')
+#     return flask.send_file(bytes_obj, attachment_filename='time_since_last_review_man.png', mimetype='image/png')
 
 
 
