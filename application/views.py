@@ -16,7 +16,7 @@ import numpy as np
 import pandas as pd
 
 # Plotting
-from .plotting import do_plot
+from .plotting import do_plot, helsinki_median_price_guest_nmbr
 
 
 model_typistetty_man = pickle.load(open('application/pickles/model_typistetty_man.pkl', 'rb'))
@@ -38,7 +38,17 @@ def index():
 
 #     return flask.send_file(bytes_obj, attachment_filename='time_since_last_review_man.png', mimetype='image/png')
 
+@app.route('/plots/helsinki/median_price_guest_number', methods=["GET"])
+def helsinki_median_price_guest_number():
+    bytes_obj = helsinki_median_price_guest_nmbr()
 
+    return flask.send_file(bytes_obj, attachment_filename='median_price_of_Airbnbs_accommodating_different_number_of_guests-helsinki.png', mimetype='image/png')
+
+
+
+
+# @app.route('/plots/helsinki/review_category_counts', methods=["GET"])
+# def helsinki_review_category_counts():
 
 
 ## Map plotting paths
