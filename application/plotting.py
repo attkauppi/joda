@@ -6,8 +6,8 @@ import io
 from sklearn.datasets import load_breast_cancer
 
 # Lähde: https://gitlab.com/dice89/python-plotting-api/-/blob/master/python_plotting_api/plotting.py
-plt.style.use('default')
-sns.set()
+#plt.style.use('default')
+
 
 
 
@@ -17,22 +17,40 @@ sns.set()
 
     
 def helsinki_median_price_guest_nmbr():
-    df = pd.read_csv('application/data/hy-ennen_mallinnusta_1.csv', index_col=0)
+    sns.set()
+    df = pd.read_csv('application/data/hy-ennen_mallinnusta.csv', index_col=0)
     #fig = plt.figure(figsize=(10,5))
     plt.figure(figsize=(10,5))
+    #plt.figure(figsize=(10,5))
     df.groupby('person_capacity').price_string.median().plot(kind='bar')
     plt.title('Median price of Airbnbs accommodating different number of guests', fontsize=14)
     plt.xlabel('Number of guests accommodated', fontsize=13)
     plt.ylabel('Median price (€)', fontsize=13)
     plt.xticks(rotation=0)
     plt.xlim(left=0.5)
-    plt.savefig('applications/data/Median_price_of_Airbnbs_accommodating_different_number_of_guests-helsinki.png')
-    #fig = plt.figure()
-    #plt.show()
+    #plt.savefig('applications/data/Median_price_of_Airbnbs_accommodating_different_number_of_guests-helsinki.png')
+
     bytes_image = io.BytesIO()
 
     plt.savefig(bytes_image, format='png')
     bytes_image.seek(0)
+    #file = io.open("applications/data/Median_price_of_Airbnbs_accommodating_different_number_of_guests-helsinki.png", "rb", buffering=0)
+    #print(file)
+
+    #return file
+    # fig = df.groupby('person_capacity').price_string.median().bar(figsize=(10,5))
+    # fig.title('Median price of Airbnbs accommodating different number of guests', fontsize=14)
+    # fig.xlabel('Number of guests accommodated', fontsize=13)
+    # fig.ylabel('Median price (€)', fontsize=13)
+    # fig.xticks(rotation=0)
+    # fig.xlim(left=0.5)
+    #fig = plt.figure()
+    #plt.show()
+    
+    #bytes_image = io.BytesIO()
+
+    #plt.savefig(bytes_image, format='png')
+    #bytes_image.seek(0)
 
     return bytes_image
 
