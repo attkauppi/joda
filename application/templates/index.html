@@ -38,11 +38,35 @@
             <h4>Airbnb-asuntojen mediaanihinnat Helsingin eri kaupunginosissa</h2> 
                 <iframe src="{{ url_for('map_median_price') }}" width=600 height=600></iframe>
             </div>
+            <p>
+                Airbnb-asiakkaat tuntuvat edelleen arvostelevan matkakokemuksiaan yms. sillä ajatuksella, että yöpyessään yksityishenkilön kodissa, ei voi odottaa kaikkia niitä mukavuuksia kuin esimerkiksi hotellissa. Näin ainakin itse tulkitsen sitä, että asiakkaat tuntuvat antavan lähes yksinomaan korkeahkoja arvosanoja Airbnb-yöpymisistään. 
+            </p>
+            <p>
+                Seuraavassa esimerkiksi näkyy, miten asiakkaiden antamat arviot jakautuvat aineistossa usealla eri mittarilla. 
+            </p>
+            <div>
+                <figure class="figure">
+                    <img src="http://127.0.0.1:5000/plots/helsinki/hel_review_scores/" class="img-fluid", alt="Yleisarvostelu asunnosta"/>
+                    <figcaption class="figure-caption">Vieraiden erilaisia arvosteluperusteita Airbnb-asunnoista ja arvosanojen jakautuminen aineistossa</figcaption>
+                </figure>
+            </div>
 
-            <figure class="figure">
+            <p>
+                Airbnb:n arvostelut ovat hyvin usein arvosteluskaalan yläpääässä, mikä on havaittavissa myös seuraavasta kuviosta, joka kuvaa vieraiden antamaa yleisarvosanaa asunnosta.
+            </p>
+            <!-- <div>
+                <figure class="figure">
+                    <img src="http://127.0.0.1:5000/plots/helsinki/reviews_score_rating/" class='img-fluid' alt="Yleisarvostelu asunnosta"/>
+                    <figcaption class="figure-caption">Yleisarvostelut Helsingin Airbnb-asunnoissa. Y-akseli kuvaa asuntojen lukumäärää</figcaption>
+                </figure>
+            </div> -->
+
+            <!-- <figure class="figure"> -->
                 <!--<img src="http://localhost:5000/plots/manchester/time_since_last_review" class="img-fluid" width=900 height=300/>-->
                 <!-- TOIMIVA <img src="http://localhost:5000/plots/manchester/time_since_last_review" alt=""-->
-            </figure>
+            <!-- </figure> -->
+
+
 
 
 

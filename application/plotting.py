@@ -8,13 +8,77 @@ from sklearn.datasets import load_breast_cancer
 # Lähde: https://gitlab.com/dice89/python-plotting-api/-/blob/master/python_plotting_api/plotting.py
 #plt.style.use('default')
 
-
+df = pd.read_csv('application/data/hy-ennen_mallinnusta.csv', index_col=0)
 
 
 # def helsinki_category_counts():
 #     df = pd.read_csv("application/data/hy-ennen_mallinnusta.csv", index_col=0)
 #     fig = 
 
+
+def category_count_plot(col, figsize=(8,4)):
+    """
+    Plots a simple bar chart of the total count for each category in the column specified.
+    A figure size can optionally be specified.
+    """
+    plt.figure(figsize=figsize)
+    df[col].value_counts().plot(kind='bar')
+    plt.title(col)
+    plt.xticks(rotation=0)
+
+    bytes_image = io.BytesIO()
+    plt.savefig(bytes_image, format='png')
+
+    bytes_image.seek(0)
+    return bytes_image
+    #plt.show()
+
+def category_counts():
+    list_categories = []
+
+    for col in list(df.columns[df.columns.str.startswith("reviews_scores") == True]):
+        list_categories.append(category_count_plot(col, figsize=(5,3)))
+    
+    return list_categories
+
+def reviews_score_rating():
+    fig, ax = plt.subplots(1, 1, figsize=(8,5))
+    ax.set_title('Overall listing rating', fontsize=14)
+    df['reviews_scores_rating'].value_counts().sort_index(ascending=False).plot(kind='bar', color=['silver', 'darkgreen', 'yellowgreen', '#d1f28a' ], ax=ax)
+    ax.set_xticklabels(labels=['no reviews', '95-100%', '80-94%', '0-79%'], rotation=0)
+    ax.set_xlabel('')
+    ax.set_ylabel('Number of properties', fontsize=13)
+
+    bytes_image = io.BytesIO()
+
+    plt.savefig(bytes_image, format='png')
+
+    bytes_image.seek(0)
+    return bytes_image
+
+
+def hel_review_scores():
+    """
+    df columns that begin with the string review_scores to plot
+
+    This works despite the IO approach because we're making one collage of plots, i.e. one single image. 
+    """
+    df_reviews = pd.read_csv("application/data/hel/before_binnings_hel.csv", index_col=0)
+    variables_to_plot = list(df_reviews.columns[df.columns.str.startswith("review_scores") == True])
+    fig = plt.figure(figsize=(12,8))
+    for i, var_name in enumerate(variables_to_plot):
+        ax = fig.add_subplot(3,3,i+1)
+        df_reviews[var_name].hist(bins=10,ax=ax)
+        ax.set_title(var_name)
+    fig.tight_layout()
+
+    bytes_image = io.BytesIO()
+
+    plt.savefig(bytes_image, format='png')
+
+    bytes_image.seek(0)
+    return bytes_image
+    
     
 def helsinki_median_price_guest_nmbr():
     sns.set()
